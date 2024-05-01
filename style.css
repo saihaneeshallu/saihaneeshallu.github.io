@@ -1,0 +1,7 @@
+.decorative-line {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #666, #eee, #666);
+    margin: 20px 0;
+  }
+  
