@@ -135,23 +135,5 @@
     <!-- Other people may like it too! -->
     <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain
         Academic</a>
-
-    <script>
-        // When the DOM is fully loaded
-        document.addEventListener("DOMContentLoaded", function(event) {
-            if (window.location.hash && window.location.hash === '#publications') {
-                const target = document.getElementById(window.location.hash.substring(1));
-                if (target) {
-                    target.scrollIntoView();
-                }
-            }
-            // Update URL on navigation away from publications
-            document.querySelectorAll('a[href!="#publications"]').forEach(link => {
-                link.addEventListener('click', function() {
-                    history.pushState("", document.title, window.location.pathname + window.location.search);
-                });
-            });
-        });
-    </script>
 </body>
 </html>
