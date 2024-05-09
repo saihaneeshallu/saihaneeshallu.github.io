@@ -1,166 +1,95 @@
 <!DOCTYPE html>
-<!--
-    Plain-Academic by Vasilios Mavroudis
-    Released under the Simplified BSD License/FreeBSD (2-clause) License.
-    https://github.com/mavroudisv/plain-academic
--->
-
 <html lang="en">
-
 <head>
-
-  <title>Sai Haneesh Allu</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    html, body {
-        height: 100%; /* Set the height of the body to cover the viewport */
-        overflow: hidden; /* Disable scrolling */
-        margin: 0; /* Remove default margin */
-        padding: 0; /* Remove default padding */
-    }
-  </style>
-
+    <title>Sai Haneesh Allu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrollbar */
+        }
+        .section {
+            min-height: 100vh; /* Ensures each section covers full viewport height */
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+    </style>
 </head>
-
 <body>
-
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-          data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#">Teaching</a></li>
-          <li><a href="#publications">Publications</a></li>
-          <li><a href="#">CV</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-
-  <!-- Page Content -->
-  <div class="container">
-    <div class="row">
-      <!-- Entries Column -->
-      <div class="col-md-8" style="height: 100vh;">
-        <!-- Main Image and Contact Info -->
-        <div class="row">
-          <div class="col-sm-6">
-            <img class="img-responsive" src="profile_pic.jpg" alt=""
-              style="max-width: 75%; height: auto; aspect-ratio: 1 / 1;">
-          </div>
-          <div class="col-sm-6">
-            <div style="font-family: 'Oswald', sans-serif; font-size: 32px;"><b>Sai Haneesh Allu</b></div><br>
-            <p><b>saihaneesh [dot] allu [at] utdallas [dot] edu</b><br>
-            <p>Ph.D Candidate<br>
-            <p>Intelligent Robotics and Vision Lab<br>
-            <p>Department of Computer Science<br>
-              The University of Texas at Dallas<br>
-            </p>
-          </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span the="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#home-section">Home</a></li>
+                    <li><a href="#teaching-section">Teaching</a></li>
+                    <li><a href="#publications-section">Publications</a></li>
+                    <li><a href="#cv-section">CV</a></li>
+                </ul>
+            </div>
         </div>
-        <br>
-        <div style="margin-top:3%; text-align:justify;">
-          <p>I'm currently pursuing my Ph.D. in Computer Science at <a href="https://utdallas.edu">The University of
-              Texas at Dallas</a>, where I'm part of the <a href='https://labs.utdallas.edu/irvl/'>Intelligent Robotics
-              and Vision Lab</a>, under the guidance of Dr. Yu Xiang. My primary focus is at the intersection of
-            robotics and computer vision, specifically applied to navigation, exploration, and mobile manipulation.</p>
+    </nav>
 
-          <p>My journey in advanced technology began with a Bachelor’s degree in Electrical and Electronics Engineering
-            from the National Institute of Technology, Warangal. I then pursued a Master’s in Control Systems at the
-            Indian Institute of Technology, Delhi. During my master's program, I co-founded VECROS Technologies, where I
-            led the development of GPS-denied navigation for
-            multi-rotor aircraft systems and IoT-based BVLOS (Beyond Visual Line of Sight) operations.</p>
-
-          <p>Now, as a Ph.D. candidate, I am eager to push the boundaries of what’s possible in robotics and contribute
-            to developing robot technologies that assist humans in their daily lives.</p>
-        </div>
-      </div>
-
-      <!-- Links on the Sidebar -->
-      <div class="col-md-4" style="margin-top:2%">
-        <dd><a href="https://scholar.google.com/citations?user=yryWNDoAAAAJ&hl=en">Google Scholar</a></dd>
-        <dd><a href="https://github.com/07hokage">Github</a></dd>
-        <dd><a href="https://www.linkedin.com/in/sai-haneesh-allu/">LinkedIn</a></dd>
-      </div>
+    <!-- Home Section -->
+    <div id="home-section" class="section">
+        <h1>Welcome to My Personal Page</h1>
+        <p>This is the home section where you can find introductory information.</p>
     </div>
-  </div>
 
-
-
-  <!-- Publications -->
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2" style="height: 100vh;">
-      <h2 id="publications">Publications</h2>
-
-      <!-- Second Publication -->
-      <div class="publication-block">
-        <p>
-          <b>Grasping Trajectory Optimization with Point Clouds</b><br>
-          Yu Xiang, <b>Sai Haneesh Allu</b>, Rohith Peddi, Tyler Summers, Vibhav Gogate
-        </p>
-        <p>
-          <a href="https://irvlutd.github.io/GraspTrajOpt/">Project Page</a> | <a
-            href="https://arxiv.org/abs/2403.05466">arXiv</a><br>
-          In arXiv, 2024.
-        </p>
-      </div>
-
-      
-      <!-- Divider for creative spacing -->
-      <div class="divider"></div>
-
-      <!-- First Publication -->
-      <div class="publication-block">
-        <p>
-          <b>SCENEREPLICA: Benchmarking Real-World Robot Manipulation by Creating Reproducible Scenes</b><br>
-          Ninad Khargonkar*, <b>Sai Haneesh Allu*</b>, Yangxiao Lu, Balakrishnan Prabhakaran, Yu Xiang
-        </p>
-        <p>
-          <a href="https://irvlutd.github.io/SceneReplica/">Project Page</a> | <a
-            href="https://arxiv.org/abs/2306.15620">arXiv</a><br>
-          In International Conference on Robotics and Automation (ICRA), 2024.
-        </p>
-      </div>
-
-      
-
-      
+    <!-- Teaching Section -->
+    <div id="teaching-section" class="section">
+        <h1>Teaching</h1>
+        <p>Information about my teaching engagements and philosophy.</p>
     </div>
-  </div>
 
+    <!-- Publications Section -->
+    <div id="publications-section" class="section">
+        <h1>Publications</h1>
+        <p>A comprehensive list of my research publications.</p>
+    </div>
 
+    <!-- CV Section -->
+    <div id="cv-section" class="section">
+        <h1>Curriculum Vitae</h1>
+        <p>Details about my academic and professional background.</p>
+    </div>
 
-
-  </div>
-
-
-  </div>
-  <!-- /.container -->
-
-  <!-- Other people may like it too! -->
-  <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain
-    Academic</a>
-
+    <script>
+        // Smooth scrolling
+        $(document).ready(function(){
+            $("a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
