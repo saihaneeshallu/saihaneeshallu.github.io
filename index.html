@@ -106,6 +106,12 @@
         img.img-responsive {
             margin-bottom: 20px; /* Adds space between the image and the text if the screen is narrow */
         }
+        .section iframe {
+    width: 100%; /* Full width of the container */
+    height: 500px; /* Adjust the height as needed */
+    border: none; /* Removes the default border around iframes */
+}
+
     </style>
 </head>
 <body>
@@ -147,7 +153,7 @@
                         <img class="img-responsive" src="profile_pic.jpg" alt="" style="max-width: 80%; height: auto;">
                     </div>
                     <div class="col-md-6">
-                        <h1 style="font-family: 'Oswald', sans-serif; font-size: 32px;">Sai Haneesh Allu</h1>
+                        <h1 style="font-family: 'Oswald', sans-serif; font-size: 36px;">Sai Haneesh Allu</h1>
                         <p><strong>saihaneesh [dot] allu [at] utdallas [dot] edu</strong></p>
                         <p>Ph.D. Candidate</p>
                         <p>Intelligent Robotics and Vision Lab</p>
@@ -247,10 +253,14 @@
 
 
     <!-- CV Section -->
-    <div id="cv-section" class="section">
-        <h1>Curriculum Vitae</h1>
-        <p>Details about my academic and professional background.</p>
-    </div>
+<div id="cv-section" class="section">
+    <h1>Curriculum Vitae</h1>
+    <p>Below is my Curriculum Vitae:</p>
+    <iframe src="sai_cv.pdf" frameborder="0" width="100%" height="500px">
+        This browser does not support PDFs. Please download the PDF to view it: <a href="path/to/your/CV_Sai_Haneesh_Allu.pdf">Download PDF</a>.
+    </iframe>
+</div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
