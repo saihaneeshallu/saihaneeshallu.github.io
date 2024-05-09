@@ -25,6 +25,20 @@
             flex-direction: column;
             text-align: center;
         }
+        .list-group-item {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            padding: 10px 15px;
+            margin-bottom: 5px;
+        }
+        .publication-block {
+        text-align: left;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
     </style>
 </head>
 <body>
@@ -57,11 +71,25 @@
         <p>This is the home section where you can find introductory information.</p>
     </div>
 
+
     <!-- Teaching Section -->
     <div id="teaching-section" class="section">
-        <h1>Teaching</h1>
-        <p>Information about my teaching engagements and philosophy.</p>
+        <h1>Teaching Experience</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <ul class="list-group">
+                        <li class="list-group-item">CS 4361 Computer Graphics - University of Texas at Dallas</li>
+                        <li class="list-group-item">ELP801 Advanced Control Laboratory - Indian Institute of Technology Delhi</li>
+                        <li class="list-group-item">ELP800 Control Systems Laboratory - Indian Institute of Technology Delhi</li>
+                        <li class="list-group-item">ELL705 Stochastic Filtering and Identification - Indian Institute of Technology Delhi</li>
+                        <li class="list-group-item">ELL101 Introduction to Electrical Engineering - Indian Institute of Technology Delhi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+
 
     <!-- Publications Section -->
     <div id="publications-section" class="section">
