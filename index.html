@@ -39,9 +39,21 @@
         border-radius: 5px;
         margin-bottom: 20px;
     }
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000; /* Ensures the navbar stays on top of other content */
+        }
+
+    body {
+        padding-top: 70px; /* Adjust this value based on the actual height of your navbar */
+    }
+
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
         <div class="container">
@@ -50,8 +62,8 @@
                     data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
                     <span the="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -64,6 +76,7 @@
             </div>
         </div>
     </nav>
+
 
     <!-- Home Section -->
     <div id="home-section" class="section">
