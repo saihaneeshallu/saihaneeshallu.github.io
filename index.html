@@ -20,7 +20,7 @@
         .section {
             min-height: 100vh; /* Ensures each section covers full viewport height */
             padding: 20px;
-            display: flex;
+            display: none;
             justify-content: center;
             align-items: center;
             flex-direction: column;
@@ -184,26 +184,31 @@
     </div>
 
     <script>
-        $(document).ready(function() {
-            $("a").on('click', function(event) {
-                if (this.hash !== "") {
-                    event.preventDefault(); // Prevent default anchor click behavior
-                    var hash = this.hash;
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.querySelectorAll('.navbar-nav a'); // Get all nav links
         
-                    // Using jQuery's animate() method to add smooth page scroll
-                    // Calculate the correct offset taking into account the fixed navbar
-                    var navbarOffset = $('.navbar').outerHeight(); // Get the dynamic height of the navbar
+            links.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default link behavior
         
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top - navbarOffset // Adjust the scroll position
-                    }, 800, function() {
-                        // Optional: update the hash in the URL after scrolling
-                        window.history.pushState(null, null, hash);
+                    var targetId = e.target.getAttribute('href').replace('#', '');
+                    var sections = document.querySelectorAll('.section');
+        
+                    // Remove 'active' class from all sections
+                    sections.forEach(function(section) {
+                        section.classList.remove('active');
                     });
-                }
+        
+                    // Add 'active' class to the target section
+                    var targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+                });
             });
         });
         </script>
+        
         
 </body>
 </html>
