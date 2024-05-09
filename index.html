@@ -8,15 +8,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden; /* Prevent horizontal scrollbar */
-            position: relative;
-        }
         .section {
             min-height: 100vh; /* Ensures each section covers full viewport height */
             padding: 20px;
@@ -26,6 +21,37 @@
             flex-direction: column;
             text-align: center;
         }
+
+        .teaching-details {
+            margin-bottom: 20px;
+        }
+
+        .list-group-item {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .list-group-item i {
+            margin-right: 10px;
+            color: #17a2b8; /* Bootstrap info color */
+        }
+
+        .list-group {
+            width: 100%;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrollbar */
+            position: relative;
+        }
+        
         .section.active {
             display: block; /* Only display the active section */
         }
@@ -42,17 +68,17 @@
         background-color: #f9f9f9;
         border-radius: 5px;
         margin-bottom: 20px;
-    }
-    .navbar {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000; /* Ensures the navbar stays on top of other content */
         }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* Ensures the navbar stays on top of other content */
+            }
 
-    body {
-        padding-top: 70px; /* Adjust this value based on the actual height of your navbar */
-    }
+        body {
+            padding-top: 70px; /* Adjust this value based on the actual height of your navbar */
+        }
 
     </style>
 </head>
@@ -127,19 +153,32 @@
         <h1>Teaching Experience</h1>
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-12">
+                    <div class="teaching-details">
+                        <p>As a passionate educator, I have had the privilege of teaching and assisting in a variety of courses throughout my academic career. Below are some of the courses I've contributed to:</p>
+                    </div>
                     <ul class="list-group">
-                        <li class="list-group-item">CS 4361 Computer Graphics - University of Texas at Dallas</li>
-                        <li class="list-group-item"> CS 4337 - Programming Language Paradigms- University of Texas at Dallas</li>
-                        <li class="list-group-item">ELP801 Advanced Control Laboratory - Indian Institute of Technology Delhi</li>
-                        <li class="list-group-item">ELP800 Control Systems Laboratory - Indian Institute of Technology Delhi</li>
-                        <li class="list-group-item">ELL705 Stochastic Filtering and Identification - Indian Institute of Technology Delhi</li>
-                        <li class="list-group-item">ELL101 Introduction to Electrical Engineering - Indian Institute of Technology Delhi</li>
+                        <li class="list-group-item">
+                            <i class="fa fa-book" aria-hidden="true"></i> CS 4361 Computer Graphics at University of Texas at Dallas
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fa fa-cogs" aria-hidden="true"></i> ELP801 Advanced Control Laboratory at Indian Institute of Technology Delhi
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fa fa-gears" aria-hidden="true"></i> ELP800 Control Systems Laboratory at Indian Institute of Technology Delhi
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fa fa-signal" aria-hidden="true"></i> ELL705 Stochastic Filtering and Identification at Indian Institute of Technology Delhi
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fa fa-bolt" aria-hidden="true"></i> ELL101 Introduction to Electrical Engineering at Indian Institute of Technology Delhi
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+
 
 
     <!-- Publications Section -->
