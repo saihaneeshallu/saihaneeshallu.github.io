@@ -187,16 +187,23 @@
         $(document).ready(function() {
             $("a").on('click', function(event) {
                 if (this.hash !== "") {
-                    event.preventDefault();
+                    event.preventDefault(); // Prevent default anchor click behavior
                     var hash = this.hash;
+        
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // Calculate the correct offset taking into account the fixed navbar
+                    var navbarOffset = $('.navbar').outerHeight(); // Get the dynamic height of the navbar
+        
                     $('html, body').animate({
-                        scrollTop: $(hash).offset().top - 50
-                    }, 800, function(){
+                        scrollTop: $(hash).offset().top - navbarOffset // Adjust the scroll position
+                    }, 800, function() {
+                        // Optional: update the hash in the URL after scrolling
                         window.history.pushState(null, null, hash);
                     });
                 }
             });
         });
-    </script>
+        </script>
+        
 </body>
 </html>
