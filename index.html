@@ -85,19 +85,27 @@
 
         .social-link {
             display: inline-block;
-            margin-right: 10px; /* Adds space between links */
-            color: #007bff; /* Bootstrap primary color */
+            margin: 5px 10px;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
             text-decoration: none;
+            transition: background-color 0.3s ease;
         }
 
         .social-link:hover {
-            text-decoration: underline;
+            background-color: #0056b3;
+            text-decoration: none;
         }
 
         .link-container {
             margin-top: 20px;
+            margin-bottom: 20px; /* Add space between links and description */
         }
-
+        img.img-responsive {
+            margin-bottom: 20px; /* Adds space between the image and the text if the screen is narrow */
+        }
     </style>
 </head>
 <body>
@@ -132,41 +140,36 @@
         <p>This is the home section where you can find introductory information.</p>
     </div> -->
     <!-- Home Section -->
-    <div id="home-section" class="section active">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <img class="img-responsive" src="profile_pic.jpg" alt="" style="max-width: 100%; height: auto;">
+        <div id="home-section" class="section active">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="img-responsive" src="profile_pic.jpg" alt="" style="max-width: 100%; height: auto;">
+                    </div>
+                    <div class="col-md-6">
+                        <h1 style="font-family: 'Oswald', sans-serif; font-size: 32px;">Sai Haneesh Allu</h1>
+                        <p><strong>saihaneesh [dot] allu [at] utdallas [dot] edu</strong></p>
+                        <p>Ph.D. Candidate</p>
+                        <p>Intelligent Robotics and Vision Lab</p>
+                        <p>Department of Computer Science</p>
+                        <p>The University of Texas at Dallas</p>
+                        <div class="link-container">
+                            <a href="https://scholar.google.com/citations?user=yryWNDoAAAAJ&hl=en" class="social-link">Google Scholar</a>
+                            <a href="https://github.com/07hokage" class="social-link">Github</a>
+                            <a href="https://www.linkedin.com/in/sai-haneesh-allu/" class="social-link">LinkedIn</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h1 style="font-family: 'Oswald', sans-serif; font-size: 32px;">Sai Haneesh Allu</h1>
-                    <p><strong>saihaneesh [dot] allu [at] utdallas [dot] edu</strong></p>
-                    <p>Ph.D. Candidate</p>
-                    <p>Intelligent Robotics and Vision Lab</p>
-                    <p>Department of Computer Science</p>
-                    <p>The University of Texas at Dallas</p>
-                    <p>I'm currently pursuing my Ph.D. in Computer Science at <a href="https://utdallas.edu">The University of
-                        Texas at Dallas</a>, where I'm part of the <a href='https://labs.utdallas.edu/irvl/'>Intelligent Robotics
-                        and Vision Lab</a>, under the guidance of Dr. Yu Xiang. My primary focus is at the intersection of
-                      robotics and computer vision, specifically applied to navigation, exploration, and mobile manipulation.</p>
-          
-                    <p>My journey in advanced technology began with a Bachelor’s degree in Electrical and Electronics Engineering
-                      from the National Institute of Technology, Warangal. I then pursued a Master’s in Control Systems at the
-                      Indian Institute of Technology, Delhi. During my master's program, I co-founded VECROS Technologies, where I
-                      led the development of GPS-denied navigation for
-                      multi-rotor aircraft systems and IoT-based BVLOS (Beyond Visual Line of Sight) operations.</p>
-          
-                    <p>Now, as a Ph.D. candidate, I am eager to push the boundaries of what’s possible in robotics and contribute
-                      to developing robot technologies that assist humans in their daily lives.</p>
-                    <div class="link-container">
-                        <a href="https://scholar.google.com/citations?user=yryWNDoAAAAJ&hl=en" class="social-link">Google Scholar</a>
-                        <a href="https://github.com/07hokage" class="social-link">Github</a>
-                        <a href="https://www.linkedin.com/in/sai-haneesh-allu/" class="social-link">LinkedIn</a>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>I'm currently pursuing my Ph.D. in Computer Science at <a href="https://utdallas.edu">The University of Texas at Dallas</a>, where I'm part of the <a href='https://labs.utdallas.edu/irvl/'>Intelligent Robotics and Vision Lab</a>, under the guidance of Dr. Yu Xiang. My primary focus is at the intersection of robotics and computer vision, specifically applied to navigation, exploration, and mobile manipulation.</p>
+                        <p>My journey in advanced technology began with a Bachelor’s degree in Electrical and Electronics Engineering from the National Institute of Technology, Warangal. I then pursued a Master’s in Control Systems at the Indian Institute of Technology, Delhi. During my master's program, I co-founded VECROS Technologies, where I led the development of GPS-denied navigation for multi-rotor aircraft systems and IoT-based BVLOS (Beyond Visual Line of Sight) operations.</p>
+                        <p>Now, as a Ph.D. candidate, I am eager to push the boundaries of what’s possible in robotics and contribute to developing robot technologies that assist humans in their daily lives.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
 
 
 
