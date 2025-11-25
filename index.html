@@ -3,357 +3,847 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <title>Sai Haneesh Allu</title>
 
     <meta name="author" content="Sai Haneesh Allu">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Courier+Prime&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            /* DEFAULT = DARK MODE COLORS */
+            --bg-color: #1b1b1b;
+            --text-primary: #d8d8d8;
+            --highlight: #ffffff;
+            /* bright white for important text */
+            --text-secondary: #bdb6b6;
+            --accent-color: #58a6ff;
+            --border-color: #474c52;
+            --button-border: #dcdfe2;
+            --code-bg: #22272e;
+            --card-hover: rgba(255, 255, 255, 0.02);
+            --img-opacity: 0.9;
+        }
+
+        [data-theme="light"] {
+            /* LIGHT MODE OVERRIDES */
+            --bg-color: #ffffff;
+            --text-primary: #1c1c1c;
+            --highlight: #000000;
+            /* pure black for important text */
+            --text-secondary: #424242;
+            --accent-color: #046fda;
+            --border-color: #e0e0e0;
+            --button-border: #575656;
+            --code-bg: #f5f5f5;
+            --card-hover: #ffffff;
+            --img-opacity: 1.0;
+        }
+
+        /* --- GLOBAL --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 30px 20px 100px;
+        }
+
+        /* --- HEADER --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a.active {
+            color: var(--accent-color);
+            font-weight: 600;
+            opacity: 1;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            text-decoration: none;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            padding: 5px;
+            transition: 0.3s;
+            opacity: 0.8;
+        }
+
+        .theme-toggle:hover {
+            opacity: 1;
+            transform: rotate(15deg);
+        }
+
+        /* --- PROFILE --- */
+        .profile-section {
+            display: flex;
+            align-items: flex-start;
+            /* Aligns image to TOP of text */
+            gap: 50px;
+            margin-bottom: 30px;
+            /* Reduced gap */
+            padding-bottom: 20px;
+        }
+
+        .profile-text {
+            flex: 1;
+        }
+
+        .profile-text p {
+            margin-bottom: 14px;
+            text-align: justify;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        /* IMAGE STYLING */
+        .profile-pic img {
+            width: 220px;
+            border-radius: 6px;
+            object-fit: cover;
+            opacity: var(--img-opacity);
+            transition: opacity 0.3s;
+            display: block;
+            margin-top: 8px;
+            /* Slight offset to align perfectly with first line of text */
+        }
+
+        /* CONTACT AREA */
+        .contact-area {
+            margin-top: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .contact-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 4px;
+            background-color: transparent;
+            border: 1px solid var(--button-border);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .contact-pill:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+            text-decoration: none;
+            background-color: var(--code-bg);
+        }
+
+        .contact-pill.cv-highlight {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            background-color: rgba(88, 166, 255, 0.08);
+            font-weight: 600;
+        }
+
+        .email-text {
+            font-family: 'Courier Prime', monospace;
+            font-size: 1.1rem;
+            /* Increased font size */
+            color: var(--text-primary);
+            /* Use brighter color */
+            margin-left: 2px;
+            font-weight: 200;
+        }
+
+        /* --- SECTION TITLES --- */
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 30px 0 30px;
+            /* Reduced top margin */
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            color: var(--text-primary);
+            letter-spacing: -0.2px;
+        }
+
+        /* --- RESEARCH PAPERS --- */
+        .paper-item {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 50px;
+            transition: 0.2s;
+        }
+
+        .paper-thumb {
+            flex: 0 0 170px;
+            margin-top: 5px;
+        }
+
+        .paper-thumb img {
+            width: 100%;
+            border-radius: 4px;
+            transition: transform 0.2s;
+            border: 1px solid var(--border-color);
+            opacity: var(--img-opacity);
+        }
+
+        .paper-thumb:hover img {
+            transform: scale(1.02);
+            opacity: 1;
+        }
+
+        .paper-details {
+            flex: 1;
+        }
+
+        .paper-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            display: block;
+            margin-bottom: 5px;
+            line-height: 1.35;
+        }
+
+        .paper-authors {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        /* Highlight Name Logic */
+        .paper-authors strong {
+            color: var(--highlight);
+            /* Pop out effect */
+            font-weight: 700;
+        }
+
+        .paper-venue {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--highlight);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* TAB BUTTONS */
+        .links-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-tab {
+            display: inline-block;
+            padding: 3px 10px;
+            border: 1px solid var(--button-border);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: transparent;
+            transition: 0.2s;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-tab:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+            text-decoration: none;
+            background-color: var(--code-bg);
+        }
+
+        /* Abstract & BibTeX Box (Shared Style) */
+        .code-box {
+            display: none;
+            margin-top: 15px;
+            background: var(--code-bg);
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .bibtex-style {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.8rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        .code-box.show {
+            display: block;
+        }
+
+        /* --- INDUSTRY & SERVICE --- */
+        .list-grid {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+            align-items: baseline;
+        }
+
+        .list-date {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-align: left;
+        }
+
+        .list-content {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .list-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+            padding-top: 20px;
+            text-align: right;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .container {
+                padding-top: 20px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .header-controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .profile-section {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .profile-pic img {
+                width: 160px;
+                margin: 0 auto;
+            }
+
+            .contact-links {
+                justify-content: center;
+            }
+
+            .paper-item {
+                flex-direction: column;
+            }
+
+            .paper-thumb {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 15px;
+            }
+
+            .list-grid {
+                grid-template-columns: 1fr;
+                gap: 5px;
+                margin-bottom: 25px;
+            }
+
+            .list-date {
+                margin-bottom: 2px;
+                color: var(--accent-color);
+            }
+
+            .email-text {
+                display: block;
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <table
-        style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-        <tbody>
-            <tr style="padding:0px">
-                <td style="padding:0px">
-                    <table
-                        style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-                        <tbody>
-                            <tr style="padding:0px">
-                                <td style="padding:2.5%;width:63%;vertical-align:middle">
-                                    <p class="name" style="text-align: center;">
-                                        Sai Haneesh Allu
-                                    </p>
-                                    <p>I'm a Ph.D. candidate in Computer Science at the <a
-                                            href="https://www.utdallas.edu/">University of
-                                            Texas at Dallas</a>, advised by <a href="https://yuxng.github.io/">Dr. Yu
-                                            Xiang</a> in the <a href="https://labs.utdallas.edu/irvl/">Intelligent
-                                            Robotics and Vision Lab</a>.
-                                    </p>
-                                    <p>
-                                        My research focuses on robot learning for mobile manipulation tasks in
-                                        unstructured real-world environments. I
-                                        develop frameworks for learning human skills from videos and transferring them
-                                        via optimization. I also work on
-                                        semantic scene representations for long-horizon planning to enable robots to
-                                        navigate and perform complex tasks
-                                        autonomously. My work intersects robot learning, mobile manipulation and
-                                        semantic exploration.
-                                    </p>
-                                    <p>
-                                        Previously, I completed my Masters in Control and Automation at <a
-                                            href="https://home.iitd.ac.in/">IIT Delhi</a>, advised by <a
-                                            href="https://web.iitd.ac.in/~sbhasin/">Dr. Shubhendu Bhasin </a> and my
-                                        Bachelors in Electrical and Electronics
-                                        Engineering at <a href="https://www.nitw.ac.in/">NIT Warangal</a>. I also
-                                        co-founded <a href="https://www.vecros.com/">VECROS Technologies</a> where I led
-                                        the development of autonomous quadrotor systems.
-                                    </p>
-                                    <p style="text-align:center">
-                                        <a href="mailto:saihaneesh.allu@utdallas.edu">Email</a> &nbsp;/&nbsp;
-                                        <a href="data/SaiHaneeshAllu_resume.pdf">CV</a> &nbsp;/&nbsp;
-                                        <a href="https://scholar.google.com/citations?user=yryWNDoAAAAJ&hl=en&oi=ao">Google
-                                            Scholar</a>
-                                        &nbsp;/&nbsp;
-                                        <a href="https://linkedin.com/in/sai-haneesh-allu">Linkedin</a> &nbsp;/&nbsp;
-                                        <a href="https://github.com/07hokage">Github</a> &nbsp;/&nbsp;
-                                        <a href="https://x.com/saihaneesh_allu">X</a>
 
-                                    </p>
-                                </td>
-                                <td style="padding:2.5%;width:37%;max-width:37%">
-                                    <a href="images/profile_pic1.jpg"><img
-                                            style="width:100%;max-width:100%;object-fit: cover; border-radius: 5%;"
-                                            alt="profile photo" src="images/profile_pic1.jpg" class="hoverZoomLink"></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table
-                        style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-                        <tbody>
-                            <tr>
-                                <td style="padding:16px;width:100%;vertical-align:middle">
-                                    <h2>Research</h2>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table
-                        style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-                        <tbody>
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    </script>
 
-                            <tr>
-                                <td style="padding:16px;width:20%;vertical-align:middle">
-                                    <a href="https://www.youtube.com/watch?v=q3bfSFYbX08" target="_blank">
-                                        <img src="images/hrt1.png" alt="Project thumbnail"
-                                            style="width:100%; max-width:160px; border-radius:5px;">
-                                    </a>
-                                </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    <a href="#">
-                                        <span class="papertitle">HRT1: One-Shot Human-to-Robot Trajectory Transfer for Mobile Manipulation</span>
-                                    </a>
-                                    <br>
-                                    <strong>Sai Haneesh Allu*</strong>, Jishnu Jaykumar P*, Ninad Khargonkar, Tyler
-                                    Summers, Jian Yao, Yu Xiang 
-                                    <br>
-                                    <em>* denotes equal contribution</em>
-                                    <em>Under submission to RA-L</em>
-                                    <br>
-                                    <a href="https://irvlutd.github.io/HRT1/">Webpage</a> /
-                                    <a href="https://github.com/IRVLUTD/HRT1">Code</a> /
-                                    <a href="https://arxiv.org/abs/2510.21026">arXiv</a>
-                                    <p></p>
-                                </td>
-                            </tr>
+    <div class="container">
 
-                            <tr>
-                                <td style="padding:16px;width:20%;vertical-align:middle">
-                                    <a href="https://www.youtube.com/watch?v=q3bfSFYbX08" target="_blank">
-                                        <img src="https://img.youtube.com/vi/q3bfSFYbX08/hqdefault.jpg"
-                                            alt="Project thumbnail"
-                                            style="width:100%; max-width:160px; border-radius:5px;">
-                                    </a>
-                                </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    <a href="#">
-                                        <span class="papertitle">A Modular Robotic System for Autonomous Exploration and
-                                            Semantic Updating in Large-Scale Indoor Environments</span>
-                                    </a>
-                                    <br>
-                                    <strong>Sai Haneesh Allu</strong>, Itay Kadosh, Tyler Summers, Yu Xiang
-                                    <br>
-                                    <em>Under review, ICRA</em>, 2026
-                                    <br>
-                                    <a href="https://irvlutd.github.io/SemanticMapping/">Webpage</a> /
-                                    <a href="https://github.com/IRVLUTD/AutoX-SemMap">Code</a> /
-                                    <a href="https://arxiv.org/abs/2409.15493">arXiv</a> /
-                                    <a href="https://www.youtube.com/watch?v=z_Ch6kSjYvc">Video</a>
-                                    <p></p>
-                                    <p>
-                                        Engineered a greedy and modular Autonomous Exploration and revisiting algorithm
-                                        for vast environments, with a hierarchical semantic-geometric data structure for
-                                        Semantic Mapping and efficient lifelong updates.
-                                    </p>
-                                </td>
-                            </tr>
+        <header>
+            <div class="header-name">Sai Haneesh Allu</div>
+            <div class="header-controls">
+                <nav class="nav-links">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="gallery.html">Gallery</a>
+                </nav>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+                    <i class="fas fa-sun" id="theme-icon"></i>
+                </button>
+            </div>
+        </header>
 
-                            <tr>
-                                <td style="padding:16px;width:20%;vertical-align:middle">
-                                    <a href="https://www.youtube.com/watch?v=LKl_ZJi2k1M" target="_blank">
-                                        <img src="https://img.youtube.com/vi/LKl_ZJi2k1M/hqdefault.jpg"
-                                            alt="Project thumbnail"
-                                            style="width:100%; max-width:160px; border-radius:5px;">
-                                    </a>
-                                </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    <a href="https://irvlutd.github.io/GraspTrajOpt/">
-                                        <span class="papertitle">Grasping Trajectory Optimization with Point
-                                            Clouds</span>
-                                    </a>
-                                    <br>
-                                    Yu Xiang, <strong>Sai Haneesh Allu</strong>, Rohith Peddi, Tyler Summers, Vibhav
-                                    Gogate
-                                    <br>
-                                    <em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em>,
-                                    2024
-                                    <br>
-                                    <a href="https://irvlutd.github.io/GraspTrajOpt/">Webpage</a> /
-                                    <a href="https://github.com/IRVLUTD/GraspTrajOpt">Code</a> /
-                                    <a href="https://arxiv.org/abs/2403.05466">arXiv</a> /
-                                    <a href="https://www.youtube.com/watch?v=LKl_ZJi2k1M">Video</a>
-                                    <p></p>
-                                    <p>
-                                        Formulated a point-cloud-based Trajectory Optimization framework for
-                                        simultaneous grasp selection and motion planning, achieving ~66% faster
-                                        performance compared to conventional OMPL based approach.
-                                    </p>
-                                </td>
-                            </tr>
+        <section class="profile-section">
+            <div class="profile-text">
+                <p>I'm a Ph.D. candidate in Computer Science at the <a href="https://www.utdallas.edu/">University of
+                        Texas at Dallas</a>, advised by <a href="https://yuxng.github.io/">Dr. Yu Xiang</a> in the <a
+                        href="https://labs.utdallas.edu/irvl/">Intelligent Robotics and Vision Lab</a>.</p>
 
-                            <tr>
-                                <td style="padding:16px;width:20%;vertical-align:middle">
-                                    <a href="https://youtu.be/hDkOMBLJw98" target="_blank">
-                                        <img src="https://img.youtube.com/vi/hDkOMBLJw98/hqdefault.jpg"
-                                            alt="Project thumbnail"
-                                            style="width:100%; max-width:160px; border-radius:5px;">
-                                    </a>
-                                </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    <a href="https://irvlutd.github.io/SceneReplica/">
-                                        <span class="papertitle">SceneReplica: Benchmarking Real-World Robot
-                                            Manipulation by Creating Replicable Scenes</span>
-                                    </a>
-                                    <br>
-                                    Ninad Khargonkar*, <strong>Sai Haneesh Allu</strong>*, Yangxiao Lu, Jishnu Jaykumar
-                                    P, Balakrishnan Prabhakaran, Yu Xiang (* denotes equal contribution)
-                                    <br>
-                                    <em>International Conference on Robotics and Automation (ICRA)</em>, 2024
-                                    <br>
-                                    <a href="https://irvlutd.github.io/SceneReplica/">Webpage</a> /
-                                    <a href="https://github.com/irvlutd/SceneReplica">Code</a> /
-                                    <a href="https://arxiv.org/abs/2306.15620">arXiv</a> /
-                                    <a href="https://youtu.be/hDkOMBLJw98">Video</a>
-                                    <p></p>
-                                    <p>
-                                        Proposed a marker-free scene alignment technique for Benchmarking real-world
-                                        robot manipulation, evaluated across 11 existing perception, planning and
-                                        control pipelines over 2000 grasping trials.
-                                    </p>
-                                </td>
-                            </tr>
+                <p>
+                    My research focuses on robot learning for mobile manipulation tasks in unstructured real-world
+                    environments. I develop frameworks for learning human skills from videos and transferring them via
+                    optimization. I also work on semantic scene representations for long-horizon planning to enable
+                    robots to navigate and perform complex tasks autonomously. My work intersects robot learning, mobile
+                    manipulation and semantic exploration.
+                </p>
 
-                            <tr>
-                                <td style="padding:16px;width:20%;vertical-align:middle">
-                                    <a href="https://youtu.be/Nb4IjsXgFi8" target="_blank">
-                                        <img src="https://img.youtube.com/vi/Nb4IjsXgFi8/hqdefault.jpg"
-                                            alt="Project thumbnail"
-                                            style="width:100%; max-width:160px; border-radius:5px;">
-                                    </a>
-                                </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    <a href="#">
-                                        <span class="papertitle">Formation Control of Quadcopters</span>
-                                    </a>
-                                    <br>
-                                    <strong>Sai Haneesh Allu</strong>
-                                    <br>
-                                    <em>Master's Thesis, IIT Delhi</em>, 2020
-                                    <br>
-                                    <a href="https://github.com/07hokage/formation_control">Code</a> /
-                                    <a
-                                        href="https://drive.google.com/file/d/15sT2H-P_94t6lEN5ALV7wFHvY_hcL83v/view">Thesis</a>
-                                    /
-                                    <a href="https://youtu.be/Nb4IjsXgFi8">Video</a>
-                                    <p></p>
-                                    <p>
-                                        Researched and implemented Distributed Formation Control algorithms on
-                                        real-world quadcopter swarm and developed a target capture mechanism using a
-                                        graph-based leader-follower consensus approach.
-                                    </p>
-                                </td>
-                            </tr>
+                <p>
+                    Previously, I completed my Masters in Control and Automation at <a
+                        href="https://home.iitd.ac.in/">IIT Delhi</a>, advised by <a
+                        href="https://web.iitd.ac.in/~sbhasin/">Dr. Shubhendu Bhasin </a> and my Bachelors in Electrical
+                    and Electronics Engineering at <a href="https://www.nitw.ac.in/">NIT Warangal</a>. I also co-founded
+                    <a href="https://www.vecros.com/">VECROS Technologies</a> where I led the development of autonomous
+                    quadrotor systems.
+                </p>
 
-                        </tbody>
-                    </table>
-                    <table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <h2>Industry Experience</h2>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table
-                        style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-                        <tbody>
-                            <tr>
-                                <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-                                    <div class="colored-box"
-                                        style="background-color: #fcb97d; width:90px; height:30px; display:flex; align-items:center; justify-content:center;">
-                                        <h3 style="margin:0;font-size:15px">VECROS</h3>
-                                    </div>
-                                </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    <strong>Co-Founder and CTO</strong>, 2020 – 2021, Delhi, India
-                                    <br>
-                                    Developed an edge-processed Visual Inertial Odometry system and a mapless reactive
-                                    planner for GPS-denied navigation. Led the team in building a web-based BVLOS
-                                    control platform using AWS IoT. Contributed to raising $100K in a seed funding
-                                    round.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-                                    <div class="colored-box"
-                                        style="background-color: #fcb97d; width:90px; height:30px; display:flex; align-items:center; justify-content:center;">
-                                        <h3 style="margin:0;font-size:15px">Sterlite Tech</h3>
-                                    </div>
-                                </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    <strong style="font-size: 14px; letter-spacing: 0.5px;">Operations
-                                        Engineer</strong>, 2016 – 2017, Maharashtra, India <br>
-                                    Investigated the optical fiber spooling process and implemented a grounding
-                                    mechanism to reduce process failures. Co-authored comprehensive maintenance
-                                    documentation to reduce machine downtime.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="contact-area">
+                    <div class="contact-links">
+                        <a href="data/SaiHaneeshAllu_resume.pdf" class="contact-pill cv-highlight"><i
+                                class="fas fa-file-alt"></i> CV</a>
+                        <a href="https://scholar.google.com/citations?user=yryWNDoAAAAJ&hl=en&oi=ao"
+                            class="contact-pill"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                        <a href="https://linkedin.com/in/sai-haneesh-allu" class="contact-pill"><i
+                                class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://github.com/07hokage" class="contact-pill"><i class="fab fa-github"></i>
+                            GitHub</a>
+                        <a href="https://x.com/saihaneesh_allu" class="contact-pill"><i class="fab fa-twitter"></i>
+                            Twitter</a>
+                    </div>
+                    <div class="email-text">
+                        saihaneesh [dot] allu [at] utdallas [dot] edu
+                    </div>
+                </div>
+            </div>
+            <div class="profile-pic">
+                <img src="images/profile_pic1.jpg" alt="Sai Haneesh Allu">
+            </div>
+        </section>
 
-                    <table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <h2>Leadership & Service</h2>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table
-                        style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-                        <tbody>
-                            <tr>
-                                <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-                                    <div class="colored-box"
-                                        style="background-color: #aaba9e; width:90px; height:30px; display:flex; align-items:center; justify-content:center;">
-                                        <h3 style="margin:0;font-size:15px">Workshop Organizer</h3>
-                                    </div>
-                                </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    Co-organizer for the Neural Representation Learning for Robot Manipulation workshop
-                                    at CoRL 2023.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-                                    <div class="colored-box"
-                                        style="background-color: #aaba9e; width:90px; height:30px; display:flex; align-items:center; justify-content:center;">
-                                        <h3 style="margin:0;font-size:15px">Peer Reviewer</h3>
-                                    </div>
-                                </td>
-                                <td style="padding:8px;width:80%;vertical-align:middle">
-                                    IROS'24, ICRA'25, '26
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-                                    <div class="colored-box"
-                                        style="background-color: #edd892; width:90px; height:30px; display:flex; align-items:center; justify-content:center;">
-                                        <h3 style="margin:0;font-size:15px">Teaching Assistant</h3>
-                                    </div>
-                                </td>
-                                <td style="padding:0px;width:80%;vertical-align:center">
-                                    <div style="margin-bottom: 8px;"><b>UT Dallas:</b> Computer Graphics, Human-Computer
-                                        Interaction, and Summer Research Program 2023 for high school students.</div>
-                                    <div><b>IIT Delhi:</b> Stochastic filtering and system identification, Multi-agent
-                                        control, Advanced Control Lab.</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <section>
+            <h2 class="section-title">Publications</h2>
 
-                    <table
-                        style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-                        <tbody>
-                            <tr>
-                                <td style="padding:0px">
-                                    <br>
-                                    <p style="text-align:right;font-size:small;">
-                                        Website template from <a href="https://jonbarron.info/">Jon Barron</a>
-                                    </p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-    </table>
+            <div class="paper-item">
+                <div class="paper-thumb">
+                    <img src="images/hrt1.png" alt="HRT1">
+                </div>
+                <div class="paper-details">
+                    <a href="https://irvlutd.github.io/HRT1/" class="paper-title">HRT1: One-Shot Human-to-Robot
+                        Trajectory Transfer for Mobile Manipulation</a>
+                    <div class="paper-authors"><strong>Sai Haneesh Allu*</strong>, Jishnu Jaykumar P*, Ninad Khargonkar,
+                        Tyler Summers, Jian Yao, Yu Xiang</div>
+
+                    <span class="paper-venue">RA-L, 2025 (Under Submission)</span>
+
+                    <div class="links-row">
+                        <button class="btn-tab" onclick="toggleBlock('abs1')">Abstract</button>
+                        <a href="https://irvlutd.github.io/HRT1/" class="btn-tab">Website</a>
+                        <a href="https://arxiv.org/pdf/2510.21026" class="btn-tab">pdf</a>
+                        <a href="https://github.com/IRVLUTD/HRT1" class="btn-tab">Code</a>
+                    </div>
+
+                    <div id="abs1" class="code-box">
+                        We introduce a novel system for human-to-robot
+                        trajectory transfer that enables robots to manipulate objects by
+                        learning from human demonstration videos. The system consists
+                        of four modules. The first module is a data collection module
+                        that is designed to collect human demonstration videos from
+                        the point of view of a robot using an AR headset. The second
+                        module is a video understanding module that detects objects
+                        and extracts 3D human-hand trajectories from demonstration
+                        videos. The third module transfers a human-hand trajectory
+                        into a reference trajectory of a robot end-effector in 3D space.
+                        The last module utilizes a trajectory optimization algorithm
+                        to solve a trajectory in the robot configuration space that can
+                        follow the end-effector trajectory transferred from the human
+                        demonstration. Consequently, these modules enable a robot to
+                        watch a human demonstration video once and then repeat the
+                        same mobile manipulation task in different environments, even
+                        when objects are placed differently from the demonstrations.
+                    </div>
+
+                    <div id="bib1" class="code-box bibtex-style">@article{allu2025hrt1,
+                        title={HRT1: One-Shot Human-to-Robot Trajectory Transfer},
+                        author={Allu, Sai Haneesh and Jaykumar P, Jishnu and others},
+                        journal={arXiv preprint arXiv:2510.21026},
+                        year={2025}
+                        }</div>
+                </div>
+            </div>
+
+            <div class="paper-item">
+                <div class="paper-thumb">
+                    <img src="https://img.youtube.com/vi/q3bfSFYbX08/hqdefault.jpg" alt="Semantic Mapping">
+                </div>
+                <div class="paper-details">
+                    <a href="https://irvlutd.github.io/SemanticMapping/" class="paper-title">A Modular Robotic System
+                        for Autonomous Exploration and Semantic Updating</a>
+                    <div class="paper-authors"><strong>Sai Haneesh Allu</strong>, Itay Kadosh, Tyler Summers, Yu Xiang
+                    </div>
+
+                    <span class="paper-venue">ICRA, 2026 (Under Review)</span>
+
+                    <div class="links-row">
+                        <button class="btn-tab" onclick="toggleBlock('abs2')">Abstract</button>
+                        <a href="https://irvlutd.github.io/SemanticMapping/" class="btn-tab">Website</a>
+                        <a href="https://arxiv.org/pdf/2409.15493" class="btn-tab">pdf</a>
+                        <a href="https://github.com/IRVLUTD/AutoX-SemMap" class="btn-tab">Code</a>
+                    </div>
+
+                    <div id="abs2" class="code-box">
+                        We present a modular robotic system for autonomous exploration and semantic updating of
+                        large-scale unknown environments. Our approach enables a mobile robot to
+                        build, revisit, and update a hybrid semantic map that integrates
+                        a 2D occupancy grid for geometry with a topological graph for
+                        object semantics. Unlike prior methods that rely on manual
+                        teleoperation or precollected datasets, our two-phase approach
+                        achieves end-to-end autonomy: first, a modified frontier-based
+                        exploration algorithm with dynamic search windows constructs
+                        a geometric map; second, using a greedy trajectory planner,
+                        environments are revisited, and object semantics are updated
+                        using open-vocabulary object detection and segmentation. This
+                        modular system, compatible with any metric SLAM framework, supports continuous operation by
+                        efficiently updating
+                        the semantic graph to reflect short-term and long-term changes
+                        such as object relocation, removal, or addition. We validate the
+                        approach on a Fetch robot in real-world indoor environments of
+                        approximately 8, 500m^2 and 117m^2, demonstrating robust and
+                        scalable semantic mapping and continuous adaptation, marking
+                        a fully autonomous integration of exploration, mapping, and
+                        semantic updating on a physical robot.
+                    </div>
+
+                    <div id="bib2" class="code-box bibtex-style">@article{allu2024modular,
+                        title={A Modular Robotic System for Autonomous Exploration},
+                        author={Allu, Sai Haneesh and others},
+                        year={2026}
+                        }</div>
+                </div>
+            </div>
+
+            <div class="paper-item">
+                <div class="paper-thumb">
+                    <img src="https://img.youtube.com/vi/LKl_ZJi2k1M/hqdefault.jpg" alt="GraspTrajOpt">
+                </div>
+                <div class="paper-details">
+                    <a href="https://irvlutd.github.io/GraspTrajOpt/" class="paper-title">Grasping Trajectory
+                        Optimization with Point Clouds</a>
+                    <div class="paper-authors">Yu Xiang, <strong>Sai Haneesh Allu</strong>, Rohith Peddi, Tyler Summers,
+                        Vibhav Gogate</div>
+
+                    <span class="paper-venue">IROS, 2024</span>
+
+                    <div class="links-row">
+                        <button class="btn-tab" onclick="toggleBlock('abs3')">Abstract</button>
+                        <a href="https://irvlutd.github.io/GraspTrajOpt/" class="btn-tab">Website</a>
+                        <a href="https://arxiv.org/pdf/2403.05466" class="btn-tab">pdf</a>
+                        <a href="https://github.com/IRVLUTD/GraspTrajOpt" class="btn-tab">Code</a>
+                    </div>
+
+                    <div id="abs3" class="code-box">
+                        We introduce a new trajectory optimization
+                        method for robotic grasping based on a point-cloud representation of robots and task spaces. In
+                        our method, robots are
+                        represented by 3D points on their link surfaces. The task space
+                        of a robot is represented by a point cloud that can be obtained
+                        from depth sensors. Using the point-cloud representation, goal
+                        reaching in grasping can be formulated as point matching, while
+                        collision avoidance can be efficiently achieved by querying the
+                        signed distance values of the robot points in the signed distance
+                        field of the scene points. Consequently, a constrained nonlinear
+                        optimization problem is formulated to solve the joint motion
+                        and grasp planning problem. The advantage of our method is
+                        that the point-cloud representation is general to be used with
+                        any robot in any environment. We demonstrate the effectiveness
+                        of our method by performing experiments on a tabletop scene
+                        and a shelf scene for grasping with a Fetch mobile manipulator
+                        and a Franka Panda arm.
+                    </div>
+
+                    <div id="bib3" class="code-box bibtex-style">@inproceedings{xiang2024grasping,
+                        title={Grasping Trajectory Optimization with Point Clouds},
+                        author={Xiang, Yu and Allu, Sai Haneesh and others},
+                        booktitle={IROS},
+                        year={2024}
+                        }</div>
+                </div>
+            </div>
+
+
+            <div class="paper-item">
+                <div class="paper-thumb">
+                    <img src="https://img.youtube.com/vi/hDkOMBLJw98/hqdefault.jpg" alt="SceneReplica">
+                </div>
+                <div class="paper-details">
+                    <a href="https://irvlutd.github.io/SceneReplica/" class="paper-title">SceneReplica: Benchmarking
+                        Real-World Robot Manipulation</a>
+                    <div class="paper-authors">Ninad Khargonkar*, <strong>Sai Haneesh Allu*</strong>, Yangxiao Lu,
+                        Jishnu Jaykumar P, Balakrishnan Prabhakaran, Yu Xiang</div>
+
+                    <span class="paper-venue">ICRA, 2024</span>
+
+                    <div class="links-row">
+                        <button class="btn-tab" onclick="toggleBlock('abs4')">Abstract</button>
+                        <a href="https://irvlutd.github.io/SceneReplica/" class="btn-tab">Website</a>
+                        <a href="https://arxiv.org/pdf/2306.15620" class="btn-tab">pdf</a>
+                        <a href="https://github.com/irvlutd/SceneReplica" class="btn-tab">Code</a>
+                    </div>
+
+                    <div id="abs4" class="code-box">
+                        We present a new reproducible benchmark for
+                        evaluating robot manipulation in the real world, specifically
+                        focusing on a pick-and-place task. Our benchmark uses the YCB
+                        object set, a commonly used dataset in the robotics community,
+                        to ensure that our results are comparable to other studies.
+                        Additionally, the benchmark is designed to be easily reproducible
+                        in the real world, making it accessible to researchers and
+                        practitioners. We also provide our experimental results and
+                        analyzes for model-based and model-free 6D robotic grasping on
+                        the benchmark, where representative algorithms are evaluated
+                        for object perception, grasping planning, and motion planning.
+                        We believe that our benchmark will be a valuable tool for
+                        advancing the field of robot manipulation. By providing a
+                        standardized evaluation framework, researchers can more easily
+                        compare different techniques and algorithms, leading to faster
+                        progress in developing robot manipulation methods.
+                    </div>
+
+                    <div id="bib4" class="code-box bibtex-style">@inproceedings{khargonkar2024scenereplica,
+                        title={SceneReplica: Benchmarking Real-World Robot Manipulation},
+                        author={Khargonkar, Ninad and Allu, Sai Haneesh and others},
+                        booktitle={ICRA},
+                        year={2024}
+                        }</div>
+                </div>
+            </div>
+
+            <div class="paper-item">
+                <div class="paper-thumb">
+                    <img src="https://img.youtube.com/vi/Nb4IjsXgFi8/hqdefault.jpg" alt="Formation Control">
+                </div>
+                <div class="paper-details">
+                    <a href="#" class="paper-title">Formation Control of Quadcopters</a>
+                    <div class="paper-authors"><strong>Sai Haneesh Allu</strong></div>
+
+                    <span class="paper-venue">M.S. Thesis, IIT Delhi, 2020</span>
+
+                    <div class="links-row">
+                        <button class="btn-tab" onclick="toggleBlock('abs5')">Abstract</button>
+                        <a href="https://drive.google.com/file/d/15sT2H-P_94t6lEN5ALV7wFHvY_hcL83v/view"
+                            class="btn-tab">Thesis</a>
+                        <a href="https://youtu.be/Nb4IjsXgFi8" class="btn-tab">Video</a>
+                        <a href="https://github.com/07hokage/formation_control" class="btn-tab">Code</a>
+                    </div>
+
+                    <div id="abs5" class="code-box">
+                        The primary purpose of the study is to investigate various formation control algo-
+                        rithms as well as implementing them on an experimental platform with the ulti-
+                        mate goal of implementing target interception by choosing the best suited among
+
+                        the implemented algorithms. The open source nanoquadcopter platform crazyflie
+                        2.0 was choosen for the experimentation and ardupilot flight stack along with
+                        dronekit software in the loop were used for simulation purpose. The first phase
+                        consisted of study of virtual structure, leader-follower, a graph theoretic method
+                        of formation control. Secondly, understanding the control architecture of crazyflie
+
+                        2.0, system setup and operation of optitrack motion capture system, robot oper-
+                        ating system and dronekit Software in the loop. Up next is the controller design of
+
+                        the above mentioned formation control algorithms and implementation on the cho-
+                        sen platforms, comparing their performance in formation sustenance. Comparison
+
+                        shows that graph theoretic method is best suitable for formation maintenance.
+                        Finally Target interception has been simulated using the graph theoretic method
+                        and further exploitation of velocity and trajectory based formation controls are
+                        proposed as future work through optimisation techniques.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Industry Experience</h2>
+
+            <div class="list-grid">
+                <div class="list-date">2020 – 2021</div>
+                <div class="list-content">
+                    <strong>VECROS | Co-Founder and CTO</strong>
+                    Developed an edge-processed Visual Inertial Odometry system and a mapless reactive planner for
+                    GPS-denied navigation. Led the team in building a web-based BVLOS control platform using AWS IoT.
+                </div>
+            </div>
+
+            <div class="list-grid">
+                <div class="list-date">2016 – 2017</div>
+                <div class="list-content">
+                    <strong>Sterlite Tech | Operations Engineer</strong>
+                    Investigated the optical fiber spooling process and implemented a grounding mechanism to reduce
+                    process failures.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Service & Leadership</h2>
+
+            <div class="list-grid">
+                <div class="list-date">Organizer</div>
+                <div class="list-content">Workshop on Neural Representation Learning for Robot Manipulation (CoRL 2023)
+                </div>
+            </div>
+
+            <div class="list-grid">
+                <div class="list-date">Reviewer</div>
+                <div class="list-content">IROS 2024, ICRA 2025, ICRA 2026</div>
+            </div>
+
+            <div class="list-grid">
+                <div class="list-date">Teaching</div>
+                <div class="list-content">
+                    <strong>UT Dallas:</strong> Computer Graphics, Human-Computer Interaction<br>
+                    <strong>IIT Delhi:</strong> Stochastic filtering, Multi-agent control, Advanced Control Lab
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2025 Sai Haneesh Allu. Theme inspired by Al-Folio & Jon Barron.
+        </footer>
+
+    </div>
+
+    <script>
+        /* --- DARK MODE LOGIC --- */
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            const currentTheme = html.getAttribute('data-theme');
+
+            // If attribute is missing (default state), treat as Dark Mode
+            if (!currentTheme || currentTheme === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.removeAttribute('data-theme'); // Go back to default (Dark)
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Check saved preference on load
+        if (localStorage.getItem('theme') === 'light') {
+            document.getElementById('theme-icon').classList.replace('fa-sun', 'fa-moon');
+        }
+
+        /* --- TOGGLE ABSTRACT / BIBTEX --- */
+        function toggleBlock(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('show');
+        }
+    </script>
+
 </body>
 
 </html>

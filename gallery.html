@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Gallery | Sai Haneesh Allu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Copied critical styles from index.html for consistency */
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #1c1c1c;
+            --accent-color: #0066cc;
+            --overlay-color: rgba(255,255,255,0.95);
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-primary: #e0e0e0;
+            --accent-color: #4da6ff;
+            --overlay-color: rgba(0,0,0,0.95);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0; padding: 0;
+            transition: 0.3s;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* HEADER */
+        header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 40px; }
+        .nav-links a { color: var(--text-primary); margin-right: 20px; text-decoration: none; font-weight: 500;}
+        .nav-links a.active { color: var(--accent-color); font-weight: 700; }
+        
+        .theme-toggle { background:none; border:none; cursor:pointer; color:var(--text-primary); font-size:1.2rem; }
+
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        p.subtitle { color: #666; margin-bottom: 40px; }
+
+        /* GALLERY GRID */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            height: 200px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .gallery-item:hover img { transform: scale(1.05); }
+
+        /* LIGHTBOX */
+        .lightbox {
+            display: none; position: fixed; z-index: 1000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--overlay-color);
+            justify-content: center; align-items: center;
+        }
+        .lightbox img { max-width: 90%; max-height: 90%; box-shadow: 0 20px 50px rgba(0,0,0,0.2); border-radius: 4px;}
+        .close-btn { position: absolute; top: 30px; right: 40px; font-size: 2.5rem; cursor: pointer; color: var(--text-primary); }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="gallery.html" class="active">Gallery</a>
+        </nav>
+        <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon" id="theme-icon"></i></button>
+    </header>
+
+    <h1>Gallery</h1>
+    <p class="subtitle">A collection of research visualizations, robot deployments, and experiments.</p>
+
+    <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="images/hrt1.png" alt="HRT1 Experiment">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://img.youtube.com/vi/q3bfSFYbX08/hqdefault.jpg" alt="Semantic Mapping">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://img.youtube.com/vi/LKl_ZJi2k1M/hqdefault.jpg" alt="Grasp Optimization">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://img.youtube.com/vi/hDkOMBLJw98/hqdefault.jpg" alt="SceneReplica Setup">
+        </div>
+         <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://img.youtube.com/vi/Nb4IjsXgFi8/hqdefault.jpg" alt="Drone Swarm">
+        </div>
+    </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="close-btn">&times;</span>
+    <img id="lightbox-img" src="">
+</div>
+
+<script>
+    /* SHARED THEME LOGIC */
+    function toggleTheme() {
+        const html = document.documentElement;
+        const icon = document.getElementById('theme-icon');
+        const currentTheme = html.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            html.removeAttribute('data-theme');
+            icon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('theme', 'light');
+        } else {
+            html.setAttribute('data-theme', 'dark');
+            icon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+    if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
+    }
+
+    /* LIGHTBOX LOGIC */
+    function openLightbox(el) {
+        document.getElementById('lightbox-img').src = el.querySelector('img').src;
+        document.getElementById('lightbox').style.display = 'flex';
+    }
+    function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
