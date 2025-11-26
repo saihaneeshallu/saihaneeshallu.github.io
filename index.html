@@ -1,52 +1,55 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Sai Haneesh Allu</title>
+    <title>Sai Haneesh Allu | Robotics Research</title>
 
-    <meta name="author" content="Sai Haneesh Allu">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Courier+Prime&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         /* --- VARIABLES --- */
         :root {
-            /* DEFAULT = DARK MODE COLORS */
-            --bg-color: #1b1b1b;
-            --text-primary: #d8d8d8;
-            --highlight: #ffffff;
-            /* bright white for important text */
-            --text-secondary: #bdb6b6;
-            --accent-color: #58a6ff;
-            --border-color: #474c52;
-            --button-border: #dcdfe2;
-            --code-bg: #22272e;
-            --card-hover: rgba(255, 255, 255, 0.02);
-            --img-opacity: 0.9;
+            /* DARK MODE (Default) */
+            --bg-body: #0a0b10;
+            --bg-card: rgba(22, 27, 34, 0.6);
+            --bg-hover: rgba(30, 41, 59, 0.8);
+            --text-main: #e2e8f0;
+            --text-muted: #a7b5c8;
+            --accent-primary: #38bdf8;
+            /* Cyan/Blue */
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --border-color: #334155;
+            --btn-border: #475569;
+            --grid-line: rgba(255, 255, 255, 0.03);
+
+            /* UPDATED FONTS */
+            --font-head: 'Rajdhani', sans-serif;
+            --font-body: 'Exo 2', sans-serif;
+            --font-code: 'JetBrains Mono', monospace;
         }
 
         [data-theme="light"] {
             /* LIGHT MODE OVERRIDES */
-            --bg-color: #ffffff;
-            --text-primary: #1c1c1c;
-            --highlight: #000000;
-            /* pure black for important text */
-            --text-secondary: #424242;
-            --accent-color: #046fda;
-            --border-color: #e0e0e0;
-            --button-border: #575656;
-            --code-bg: #f5f5f5;
-            --card-hover: #ffffff;
-            --img-opacity: 1.0;
+            --bg-body: #f8fafc;
+            --bg-card: rgba(255, 255, 255, 0.8);
+            --bg-hover: #f1f5f9;
+            --text-main: #0f172a;
+            --text-muted: #31363e;
+            --accent-primary: #0f3be8;
+            /* Darker Blue */
+            --accent-glow: rgba(2, 132, 199, 0.1);
+            --border-color: #cbd5e1;
+            --btn-border: #94a3b8;
+            --grid-line: rgba(0, 0, 0, 0.03);
         }
 
         /* --- GLOBAL --- */
@@ -57,18 +60,23 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-body);
             line-height: 1.6;
-            font-size: 15px;
+            font-size: 17px;
+            /* Slightly larger for the new font */
+            background-image:
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 40px 40px;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         a {
-            color: var(--accent-color);
+            color: var(--accent-primary);
             text-decoration: none;
-            transition: 0.2s;
+            transition: all 0.2s ease;
         }
 
         a:hover {
@@ -76,80 +84,60 @@
         }
 
         .container {
-            max-width: 860px;
+            /* INCREASED WIDTH HERE */
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 30px 20px 100px;
+            padding: 40px 20px 100px;
         }
 
-        /* --- HEADER --- */
+        /* --- HEADER & TOGGLE --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
             border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
         }
 
         .header-name {
-            font-size: 1.8rem;
+            font-family: var(--font-head);
+            font-size: 2.2rem;
+            /* Adjusted for Rajdhani */
             font-weight: 700;
-            letter-spacing: -0.5px;
-            color: var(--text-primary);
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+            text-transform: uppercase;
         }
 
         .header-controls {
             display: flex;
             align-items: center;
-            gap: 25px;
-        }
-
-        .nav-links a {
-            color: var(--text-primary);
-            margin-left: 20px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
-
-        .nav-links a.active {
-            color: var(--accent-color);
-            font-weight: 600;
-            opacity: 1;
-        }
-
-        .nav-links a:hover {
-            opacity: 1;
-            text-decoration: none;
+            gap: 20px;
         }
 
         .theme-toggle {
-            background: none;
-            border: none;
+            background: transparent;
+            border: 1px solid var(--btn-border);
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 50%;
             cursor: pointer;
-            color: var(--text-primary);
-            font-size: 1.1rem;
-            padding: 5px;
-            transition: 0.3s;
-            opacity: 0.8;
+            transition: 0.2s;
         }
 
         .theme-toggle:hover {
-            opacity: 1;
-            transform: rotate(15deg);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
         }
 
         /* --- PROFILE --- */
         .profile-section {
             display: flex;
+            gap: 60px;
+            /* Increased gap */
+            margin-bottom: 60px;
             align-items: flex-start;
-            /* Aligns image to TOP of text */
-            gap: 50px;
-            margin-bottom: 30px;
-            /* Reduced gap */
-            padding-bottom: 20px;
         }
 
         .profile-text {
@@ -157,110 +145,121 @@
         }
 
         .profile-text p {
-            margin-bottom: 14px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
             text-align: justify;
-            color: var(--text-primary);
-            font-size: 0.95rem;
         }
 
-        /* IMAGE STYLING */
-        .profile-pic img {
+        /* --- PROFILE PICTURE CORRECTION --- */
+        .profile-pic {
+            flex-shrink: 0;
+            /* Prevents the image from squashing */
             width: 220px;
-            border-radius: 6px;
+            /* FORCES the width - do not delete */
+            height: 220px;
+            /* FORCES the height - do not delete */
+
+            /* No background line here anymore, so it's transparent! */
+
+            border-radius: 0px;
+            border: 0px solid var(--border-color);
+            /* Keep border if you want a frame, delete if you want it floating */
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            opacity: var(--img-opacity);
-            transition: opacity 0.3s;
+            /* Ensures image fills the box without stretching */
             display: block;
-            margin-top: 8px;
-            /* Slight offset to align perfectly with first line of text */
         }
 
-        /* CONTACT AREA */
-        .contact-area {
-            margin-top: 25px;
-        }
 
+        /* CONTACT PILLS */
         .contact-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 12px;
+            margin-top: 25px;
         }
 
-        .contact-pill {
+        .pill {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 5px 14px;
-            border-radius: 4px;
-            background-color: transparent;
-            border: 1px solid var(--button-border);
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-family: var(--font-code);
             font-size: 0.85rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .contact-pill:hover {
-            border-color: var(--text-primary);
-            color: var(--text-primary);
-            text-decoration: none;
-            background-color: var(--code-bg);
-        }
-
-        .contact-pill.cv-highlight {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-            background-color: rgba(88, 166, 255, 0.08);
-            font-weight: 600;
-        }
-
-        .email-text {
-            font-family: 'Courier Prime', monospace;
-            font-size: 1.1rem;
-            /* Increased font size */
-            color: var(--text-primary);
-            /* Use brighter color */
-            margin-left: 2px;
-            font-weight: 200;
-        }
-
-        /* --- SECTION TITLES --- */
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin: 30px 0 30px;
-            /* Reduced top margin */
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            color: var(--text-primary);
-            letter-spacing: -0.2px;
-        }
-
-        /* --- RESEARCH PAPERS --- */
-        .paper-item {
-            display: flex;
-            gap: 25px;
-            margin-bottom: 50px;
+            background: var(--bg-card);
+            border: 1px solid var(--btn-border);
+            color: var(--text-muted);
             transition: 0.2s;
+            text-decoration: none !important;
+        }
+
+        .pill:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- PAPERS --- */
+        .section-title {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            /* Adjusted for Rajdhani */
+            margin: 60px 0 35px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 28px;
+            background: var(--accent-primary);
+        }
+
+        .paper-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            /* Increased padding */
+            margin-bottom: 30px;
+            display: flex;
+            gap: 30px;
+            transition: 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .paper-item:hover {
+            border-color: var(--accent-primary);
         }
 
         .paper-thumb {
-            flex: 0 0 170px;
-            margin-top: 5px;
+            width: 180px;
+            /* Larger thumb */
+            flex-shrink: 0;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
         }
 
         .paper-thumb img {
             width: 100%;
-            border-radius: 4px;
-            transition: transform 0.2s;
-            border: 1px solid var(--border-color);
-            opacity: var(--img-opacity);
-        }
-
-        .paper-thumb:hover img {
-            transform: scale(1.02);
-            opacity: 1;
+            height: auto;
+            display: block;
         }
 
         .paper-details {
@@ -268,158 +267,164 @@
         }
 
         .paper-title {
-            font-weight: 700;
-            font-size: 1.05rem;
+            font-family: var(--font-head);
+            /* Use header font for titles */
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-main);
             display: block;
-            margin-bottom: 5px;
-            line-height: 1.35;
+            margin-bottom: 8px;
+            line-height: 1.2;
         }
 
         .paper-authors {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin-bottom: 6px;
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
         }
 
-        /* Highlight Name Logic */
         .paper-authors strong {
-            color: var(--highlight);
-            /* Pop out effect */
-            font-weight: 700;
+            color: var(--accent-primary);
         }
 
         .paper-venue {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--highlight);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        /* TAB BUTTONS */
-        .links-row {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .btn-tab {
             display: inline-block;
-            padding: 3px 10px;
-            border: 1px solid var(--button-border);
+            font-family: var(--font-code);
+            font-size: 0.85rem;
+            color: var(--text-main);
+            background: rgba(125, 211, 252, 0.1);
+            padding: 4px 10px;
             border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            background: transparent;
-            transition: 0.2s;
-            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        /* BUTTONS */
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-small {
+            font-family: var(--font-code);
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .btn-tab:hover {
-            border-color: var(--text-primary);
-            color: var(--text-primary);
-            text-decoration: none;
-            background-color: var(--code-bg);
-        }
-
-        /* Abstract & BibTeX Box (Shared Style) */
-        .code-box {
-            display: none;
-            margin-top: 15px;
-            background: var(--code-bg);
-            padding: 15px;
+            color: var(--text-muted);
+            border: 1px solid var(--btn-border);
+            padding: 6px 14px;
             border-radius: 4px;
-            font-size: 0.9rem;
+            background: transparent;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-small:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        /* Hidden Content */
+        .hidden-block {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
             border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            line-height: 1.5;
+            border-left: 3px solid var(--accent-primary);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
             text-align: justify;
         }
 
-        .bibtex-style {
-            font-family: 'Courier Prime', monospace;
-            font-size: 0.8rem;
+        /* Update this class */
+        .bibtex {
+            font-family: var(--font-code);
+            white-space: pre;
+            /* Preserves formatting exactly */
             overflow-x: auto;
-            white-space: pre-wrap;
+            /* Adds scrollbar if lines are long */
+            font-size: 0.8rem;
+            background: #111;
+            /* Darker background for code block */
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            color: #a5b3ce;
+            /* Code-like text color */
         }
 
-        .code-box.show {
+        .hidden-block.show {
             display: block;
+            animation: slideDown 0.3s ease;
         }
 
-        /* --- INDUSTRY & SERVICE --- */
-        .list-grid {
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- EXPERIENCE --- */
+        .exp-grid {
             display: grid;
             grid-template-columns: 140px 1fr;
-            gap: 20px;
+            /* Wider date column */
+            gap: 25px;
             margin-bottom: 30px;
             align-items: baseline;
         }
 
-        .list-date {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            text-align: left;
-        }
-
-        .list-content {
+        .exp-date {
+            font-family: var(--font-code);
+            color: var(--accent-primary);
             font-size: 0.95rem;
-            color: var(--text-secondary);
+            text-align: right;
+            font-weight: 600;
         }
 
-        .list-content strong {
-            color: var(--text-primary);
+        .exp-content {
+            color: var(--text-muted);
+        }
+
+        .exp-content strong {
+            color: var(--text-main);
             font-weight: 600;
-            display: block;
-            margin-bottom: 4px;
+            font-family: var(--font-head);
+            font-size: 1.1rem;
         }
 
         /* --- FOOTER --- */
         footer {
-            border-top: 1px solid var(--border-color);
-            margin-top: 60px;
+            margin-top: 80px;
             padding-top: 20px;
-            text-align: right;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-family: var(--font-code);
             font-size: 0.8rem;
-            color: var(--text-secondary);
+            color: var(--text-muted);
         }
 
-        /* --- RESPONSIVE --- */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .container {
-                padding-top: 20px;
-            }
-
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-
-            .header-controls {
-                width: 100%;
-                justify-content: space-between;
+                padding: 20px 20px 60px;
             }
 
             .profile-section {
                 flex-direction: column-reverse;
+                align-items: center;
                 text-align: center;
                 gap: 30px;
-            }
-
-            .profile-pic img {
-                width: 160px;
-                margin: 0 auto;
-            }
-
-            .contact-links {
-                justify-content: center;
             }
 
             .paper-item {
@@ -428,25 +433,49 @@
 
             .paper-thumb {
                 width: 100%;
-                max-width: 300px;
-                margin-bottom: 15px;
+                max-width: 400px;
+                margin: 0 auto 15px;
             }
 
-            .list-grid {
+            .exp-grid {
                 grid-template-columns: 1fr;
                 gap: 5px;
-                margin-bottom: 25px;
             }
 
-            .list-date {
-                margin-bottom: 2px;
-                color: var(--accent-color);
+            .exp-date {
+                text-align: left;
             }
 
-            .email-text {
-                display: block;
-                text-align: center;
-                margin-top: 10px;
+            .header-name {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* --- Equal Contribution Note --- */
+        /* --- Equal Contribution Note (Side Aligned) --- */
+        .equal-contribution {
+            font-family: var(--font-code);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            text-transform: none;
+            /* Prevents it from being uppercase like the header */
+            margin-left: auto;
+            /* Pushes text to the far right */
+            padding-top: 4px;
+            /* Visual alignment adjustment */
+        }
+
+        /* Mobile adjustment: stack them if screen is too small */
+        @media (max-width: 600px) {
+            .section-title {
+                flex-wrap: wrap;
+            }
+
+            .equal-contribution {
+                margin-left: 0;
+                width: 100%;
+                margin-top: 5px;
             }
         }
     </style>
@@ -454,32 +483,24 @@
 
 <body>
 
-    <script>
-        if (localStorage.getItem('theme') === 'light') {
-            document.documentElement.setAttribute('data-theme', 'light');
-        }
-    </script>
-
     <div class="container">
 
         <header>
             <div class="header-name">Sai Haneesh Allu</div>
             <div class="header-controls">
-                <nav class="nav-links">
-                    <a href="index.html" class="active">Home</a>
-                    <a href="gallery.html">Gallery</a>
-                </nav>
                 <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
-                    <i class="fas fa-sun" id="theme-icon"></i>
+                    <i class="fas fa-sun"></i>
                 </button>
             </div>
         </header>
 
         <section class="profile-section">
             <div class="profile-text">
-                <p>I'm a Ph.D. candidate in Computer Science at the <a href="https://www.utdallas.edu/">University of
-                        Texas at Dallas</a>, advised by <a href="https://yuxng.github.io/">Dr. Yu Xiang</a> in the <a
-                        href="https://labs.utdallas.edu/irvl/">Intelligent Robotics and Vision Lab</a>.</p>
+                <p>I'm a Ph.D. candidate in Computer Science at the <a href="https://www.utdallas.edu/"
+                        target="_blank">University of
+                        Texas at Dallas</a>, advised by <a href="https://yuxng.github.io/" target="_blank">Dr. Yu
+                        Xiang</a> in the <a href="https://labs.utdallas.edu/irvl/" target="_blank">Intelligent Robotics
+                        and Vision Lab</a>.</p>
 
                 <p>
                     My research focuses on robot learning for mobile manipulation tasks in unstructured real-world
@@ -490,60 +511,62 @@
                 </p>
 
                 <p>
-                    Previously, I completed my Masters in Control and Automation at <a
-                        href="https://home.iitd.ac.in/">IIT Delhi</a>, advised by <a
-                        href="https://web.iitd.ac.in/~sbhasin/">Dr. Shubhendu Bhasin </a> and my Bachelors in Electrical
-                    and Electronics Engineering at <a href="https://www.nitw.ac.in/">NIT Warangal</a>. I also co-founded
-                    <a href="https://www.vecros.com/">VECROS Technologies</a> where I led the development of autonomous
+                    Previously, I completed my Masters in Control and Automation at <a href="https://home.iitd.ac.in/"
+                        target="_blank">IIT Delhi</a>, advised by <a href="https://web.iitd.ac.in/~sbhasin/"
+                        target="_blank">Dr. Shubhendu Bhasin </a> and my Bachelors in Electrical
+                    and Electronics Engineering at <a href="https://www.nitw.ac.in/" target="_blank">NIT Warangal</a>. I
+                    also co-founded
+                    <a href="https://www.vecros.com/" target="_blank">VECROS Technologies</a> where I led the
+                    development of autonomous
                     quadrotor systems.
                 </p>
 
-                <div class="contact-area">
-                    <div class="contact-links">
-                        <a href="data/SaiHaneeshAllu_resume.pdf" class="contact-pill cv-highlight"><i
-                                class="fas fa-file-alt"></i> CV</a>
-                        <a href="https://scholar.google.com/citations?user=yryWNDoAAAAJ&hl=en&oi=ao"
-                            class="contact-pill"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-                        <a href="https://linkedin.com/in/sai-haneesh-allu" class="contact-pill"><i
-                                class="fab fa-linkedin"></i> LinkedIn</a>
-                        <a href="https://github.com/07hokage" class="contact-pill"><i class="fab fa-github"></i>
-                            GitHub</a>
-                        <a href="https://x.com/saihaneesh_allu" class="contact-pill"><i class="fab fa-twitter"></i>
-                            Twitter</a>
-                    </div>
-                    <div class="email-text">
-                        saihaneesh [dot] allu [at] utdallas [dot] edu
-                    </div>
+                <div class="contact-links">
+                    <a href="data/SaiHaneeshAllu_cv.pdf" target="_blank" class="pill"><i class="fas fa-file-alt"></i>
+                        CV</a>
+                    <a href="https://scholar.google.com/citations?user=yryWNDoAAAAJ&hl=en&oi=ao" target="_blank"
+                        class="pill"><i class="fas fa-graduation-cap"></i> Scholar</a>
+                    <a href="https://github.com/07hokage" target="_blank" class="pill"><i class="fab fa-github"></i>
+                        GitHub</a>
+                    <a href="https://linkedin.com/in/sai-haneesh-allu" target="_blank" class="pill"><i
+                            class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://x.com/saihaneesh_allu" target="_blank" class="pill"><i
+                            class="fa-brands fa-x-twitter"></i></a>
                 </div>
             </div>
+
             <div class="profile-pic">
-                <img src="images/profile_pic1.jpg" alt="Sai Haneesh Allu">
+                <img src="images/profile_pic.png" alt="Sai Haneesh Allu">
             </div>
         </section>
 
         <section>
-            <h2 class="section-title">Publications</h2>
-
+            <h2 class="section-title">
+                Publications
+                <span class="equal-contribution"> * denotes equal contribution and joint lead authorship</span>
+            </h2>
             <div class="paper-item">
                 <div class="paper-thumb">
                     <img src="images/hrt1.png" alt="HRT1">
                 </div>
                 <div class="paper-details">
-                    <a href="https://irvlutd.github.io/HRT1/" class="paper-title">HRT1: One-Shot Human-to-Robot
-                        Trajectory Transfer for Mobile Manipulation</a>
-                    <div class="paper-authors"><strong>Sai Haneesh Allu*</strong>, Jishnu Jaykumar P*, Ninad Khargonkar,
-                        Tyler Summers, Jian Yao, Yu Xiang</div>
+                    <a href="https://irvlutd.github.io/HRT1/" target="_blank" class="paper-title">HRT1: One-Shot
+                        Human-to-Robot Trajectory Transfer for Mobile Manipulation</a>
+                    <div class="paper-authors">
+                        <strong>Sai Haneesh Allu*</strong>, Jishnu Jaykumar P*, Ninad Khargonkar, Tyler Summers, Jian
+                        Yao, Yu Xiang
+                    </div>
+                    <div class="paper-venue">Science Robotics (Under Submission)</div>
 
-                    <span class="paper-venue">RA-L, 2025 (Under Submission)</span>
-
-                    <div class="links-row">
-                        <button class="btn-tab" onclick="toggleBlock('abs1')">Abstract</button>
-                        <a href="https://irvlutd.github.io/HRT1/" class="btn-tab">Website</a>
-                        <a href="https://arxiv.org/pdf/2510.21026" class="btn-tab">pdf</a>
-                        <a href="https://github.com/IRVLUTD/HRT1" class="btn-tab">Code</a>
+                    <div class="actions">
+                        <button class="btn-small" onclick="toggle('abs1')">Abstract</button>
+                        <a href="https://irvlutd.github.io/HRT1/" target="_blank" class="btn-small">Website</a>
+                        <a href="https://arxiv.org/pdf/2510.21026" target="_blank" class="btn-small">PDF</a>
+                        <a href="https://github.com/IRVLUTD/HRT1" target="_blank" class="btn-small">Code</a>
+                        <button class="btn-small" onclick="toggle('bib1')">Cite</button>
                     </div>
 
-                    <div id="abs1" class="code-box">
+                    <div id="abs1" class="hidden-block">
                         We introduce a novel system for human-to-robot
                         trajectory transfer that enables robots to manipulate objects by
                         learning from human demonstration videos. The system consists
@@ -562,12 +585,13 @@
                         same mobile manipulation task in different environments, even
                         when objects are placed differently from the demonstrations.
                     </div>
-
-                    <div id="bib1" class="code-box bibtex-style">@article{allu2025hrt1,
-                        title={HRT1: One-Shot Human-to-Robot Trajectory Transfer},
-                        author={Allu, Sai Haneesh and Jaykumar P, Jishnu and others},
-                        journal={arXiv preprint arXiv:2510.21026},
-                        year={2025}
+                    <div id="bib1" class="hidden-block bibtex">
+                        @article{2025hrt1,
+                        title = {HRT1: One-Shot Human-to-Robot Trajectory Transfer for Mobile Manipulation},
+                        author = {Allu, Sai Haneesh and P, Jishnu Jaykumar and Khargonkar, Ninad and Summers, Tyler
+                        and Yao, Jian and Xiang, Yu},
+                        journal = {arXiv},
+                        year = {2025}
                         }</div>
                 </div>
             </div>
@@ -577,21 +601,23 @@
                     <img src="https://img.youtube.com/vi/q3bfSFYbX08/hqdefault.jpg" alt="Semantic Mapping">
                 </div>
                 <div class="paper-details">
-                    <a href="https://irvlutd.github.io/SemanticMapping/" class="paper-title">A Modular Robotic System
-                        for Autonomous Exploration and Semantic Updating</a>
-                    <div class="paper-authors"><strong>Sai Haneesh Allu</strong>, Itay Kadosh, Tyler Summers, Yu Xiang
+                    <a href="https://irvlutd.github.io/SemanticMapping/" target="_blank" class="paper-title">A Modular
+                        Robotic System for Autonomous Exploration and Semantic Updating</a>
+                    <div class="paper-authors">
+                        <strong>Sai Haneesh Allu</strong>, Itay Kadosh, Tyler Summers, Yu Xiang
+                    </div>
+                    <div class="paper-venue">ICRA, 2026 (Under Review)</div>
+
+                    <div class="actions">
+                        <button class="btn-small" onclick="toggle('abs2')">Abstract</button>
+                        <a href="https://irvlutd.github.io/SemanticMapping/" target="_blank"
+                            class="btn-small">Website</a>
+                        <a href="https://arxiv.org/pdf/2409.15493" target="_blank" class="btn-small">PDF</a>
+                        <a href="https://github.com/IRVLUTD/AutoX-SemMap" target="_blank" class="btn-small">Code</a>
+                        <button class="btn-small" onclick="toggle('bib2')">Cite</button>
                     </div>
 
-                    <span class="paper-venue">ICRA, 2026 (Under Review)</span>
-
-                    <div class="links-row">
-                        <button class="btn-tab" onclick="toggleBlock('abs2')">Abstract</button>
-                        <a href="https://irvlutd.github.io/SemanticMapping/" class="btn-tab">Website</a>
-                        <a href="https://arxiv.org/pdf/2409.15493" class="btn-tab">pdf</a>
-                        <a href="https://github.com/IRVLUTD/AutoX-SemMap" class="btn-tab">Code</a>
-                    </div>
-
-                    <div id="abs2" class="code-box">
+                    <div id="abs2" class="hidden-block">
                         We present a modular robotic system for autonomous exploration and semantic updating of
                         large-scale unknown environments. Our approach enables a mobile robot to
                         build, revisit, and update a hybrid semantic map that integrates
@@ -613,8 +639,8 @@
                         a fully autonomous integration of exploration, mapping, and
                         semantic updating on a physical robot.
                     </div>
-
-                    <div id="bib2" class="code-box bibtex-style">@article{allu2024modular,
+                    <div id="bib2" class="hidden-block bibtex">
+                        @article{allu2024modular,
                         title={A Modular Robotic System for Autonomous Exploration},
                         author={Allu, Sai Haneesh and others},
                         year={2026}
@@ -627,21 +653,23 @@
                     <img src="https://img.youtube.com/vi/LKl_ZJi2k1M/hqdefault.jpg" alt="GraspTrajOpt">
                 </div>
                 <div class="paper-details">
-                    <a href="https://irvlutd.github.io/GraspTrajOpt/" class="paper-title">Grasping Trajectory
-                        Optimization with Point Clouds</a>
-                    <div class="paper-authors">Yu Xiang, <strong>Sai Haneesh Allu</strong>, Rohith Peddi, Tyler Summers,
-                        Vibhav Gogate</div>
+                    <a href="https://irvlutd.github.io/GraspTrajOpt/" target="_blank" class="paper-title">Grasping
+                        Trajectory Optimization with Point Clouds</a>
+                    <div class="paper-authors">
+                        Yu Xiang, <strong>Sai Haneesh Allu</strong>, Rohith Peddi, Tyler Summers, Vibhav Gogate
+                    </div>
+                    <div class="paper-venue">IROS, 2024</div>
+                    <div class="paper-venue">Oral Presentation</div>
 
-                    <span class="paper-venue">IROS, 2024</span>
-
-                    <div class="links-row">
-                        <button class="btn-tab" onclick="toggleBlock('abs3')">Abstract</button>
-                        <a href="https://irvlutd.github.io/GraspTrajOpt/" class="btn-tab">Website</a>
-                        <a href="https://arxiv.org/pdf/2403.05466" class="btn-tab">pdf</a>
-                        <a href="https://github.com/IRVLUTD/GraspTrajOpt" class="btn-tab">Code</a>
+                    <div class="actions">
+                        <button class="btn-small" onclick="toggle('abs3')">Abstract</button>
+                        <a href="https://irvlutd.github.io/GraspTrajOpt/" target="_blank" class="btn-small">Website</a>
+                        <a href="https://arxiv.org/pdf/2403.05466" target="_blank" class="btn-small">PDF</a>
+                        <a href="https://github.com/IRVLUTD/GraspTrajOpt" target="_blank" class="btn-small">Code</a>
+                        <button class="btn-small" onclick="toggle('bib3')">Cite</button>
                     </div>
 
-                    <div id="abs3" class="code-box">
+                    <div id="abs3" class="hidden-block">
                         We introduce a new trajectory optimization
                         method for robotic grasping based on a point-cloud representation of robots and task spaces. In
                         our method, robots are
@@ -660,8 +688,8 @@
                         and a shelf scene for grasping with a Fetch mobile manipulator
                         and a Franka Panda arm.
                     </div>
-
-                    <div id="bib3" class="code-box bibtex-style">@inproceedings{xiang2024grasping,
+                    <div id="bib3" class="hidden-block bibtex">
+                        @inproceedings{xiang2024grasping,
                         title={Grasping Trajectory Optimization with Point Clouds},
                         author={Xiang, Yu and Allu, Sai Haneesh and others},
                         booktitle={IROS},
@@ -670,27 +698,30 @@
                 </div>
             </div>
 
-
             <div class="paper-item">
                 <div class="paper-thumb">
                     <img src="https://img.youtube.com/vi/hDkOMBLJw98/hqdefault.jpg" alt="SceneReplica">
                 </div>
                 <div class="paper-details">
-                    <a href="https://irvlutd.github.io/SceneReplica/" class="paper-title">SceneReplica: Benchmarking
-                        Real-World Robot Manipulation</a>
-                    <div class="paper-authors">Ninad Khargonkar*, <strong>Sai Haneesh Allu*</strong>, Yangxiao Lu,
-                        Jishnu Jaykumar P, Balakrishnan Prabhakaran, Yu Xiang</div>
+                    <a href="https://irvlutd.github.io/SceneReplica/" target="_blank" class="paper-title">SceneReplica:
+                        Benchmarking Real-World Robot Manipulation</a>
+                    <div class="paper-authors">
+                        Ninad Khargonkar*, <strong>Sai Haneesh Allu*</strong>, Yangxiao Lu, Jishnu Jaykumar P,
+                        Balakrishnan Prabhakaran, Yu Xiang
+                    </div>
+                    <div class="paper-venue">ICRA, 2024</div>
+                    <div class="paper-venue">Oral Presentation</div>
 
-                    <span class="paper-venue">ICRA, 2024</span>
 
-                    <div class="links-row">
-                        <button class="btn-tab" onclick="toggleBlock('abs4')">Abstract</button>
-                        <a href="https://irvlutd.github.io/SceneReplica/" class="btn-tab">Website</a>
-                        <a href="https://arxiv.org/pdf/2306.15620" class="btn-tab">pdf</a>
-                        <a href="https://github.com/irvlutd/SceneReplica" class="btn-tab">Code</a>
+                    <div class="actions">
+                        <button class="btn-small" onclick="toggle('abs4')">Abstract</button>
+                        <a href="https://irvlutd.github.io/SceneReplica/" target="_blank" class="btn-small">Website</a>
+                        <a href="https://arxiv.org/pdf/2306.15620" target="_blank" class="btn-small">PDF</a>
+                        <a href="https://github.com/irvlutd/SceneReplica" target="_blank" class="btn-small">Code</a>
+                        <button class="btn-small" onclick="toggle('bib4')">Cite</button>
                     </div>
 
-                    <div id="abs4" class="code-box">
+                    <div id="abs4" class="hidden-block">
                         We present a new reproducible benchmark for
                         evaluating robot manipulation in the real world, specifically
                         focusing on a pick-and-place task. Our benchmark uses the YCB
@@ -708,8 +739,8 @@
                         compare different techniques and algorithms, leading to faster
                         progress in developing robot manipulation methods.
                     </div>
-
-                    <div id="bib4" class="code-box bibtex-style">@inproceedings{khargonkar2024scenereplica,
+                    <div id="bib4" class="hidden-block bibtex">
+                        @inproceedings{khargonkar2024scenereplica,
                         title={SceneReplica: Benchmarking Real-World Robot Manipulation},
                         author={Khargonkar, Ninad and Allu, Sai Haneesh and others},
                         booktitle={ICRA},
@@ -723,61 +754,60 @@
                     <img src="https://img.youtube.com/vi/Nb4IjsXgFi8/hqdefault.jpg" alt="Formation Control">
                 </div>
                 <div class="paper-details">
-                    <a href="#" class="paper-title">Formation Control of Quadcopters</a>
+                    <a href="https://drive.google.com/file/d/15sT2H-P_94t6lEN5ALV7wFHvY_hcL83v/view" target="_blank"
+                        class="paper-title">Formation Control of Quadcopters</a>
                     <div class="paper-authors"><strong>Sai Haneesh Allu</strong></div>
 
-                    <span class="paper-venue">M.S. Thesis, IIT Delhi, 2020</span>
-
-                    <div class="links-row">
-                        <button class="btn-tab" onclick="toggleBlock('abs5')">Abstract</button>
-                        <a href="https://drive.google.com/file/d/15sT2H-P_94t6lEN5ALV7wFHvY_hcL83v/view"
-                            class="btn-tab">Thesis</a>
-                        <a href="https://youtu.be/Nb4IjsXgFi8" class="btn-tab">Video</a>
-                        <a href="https://github.com/07hokage/formation_control" class="btn-tab">Code</a>
+                    <div class="meta-row">
+                        <div class="paper-venue">M.S. Thesis, IIT Delhi, 2020</div>
                     </div>
 
-                    <div id="abs5" class="code-box">
-                        The primary purpose of the study is to investigate various formation control algo-
-                        rithms as well as implementing them on an experimental platform with the ulti-
-                        mate goal of implementing target interception by choosing the best suited among
+                    <div class="actions">
+                        <button class="btn-small" onclick="toggle('abs5')">Abstract</button>
+                        <a href="https://drive.google.com/file/d/15sT2H-P_94t6lEN5ALV7wFHvY_hcL83v/view" target="_blank"
+                            class="btn-small">Thesis</a>
+                        <a href="https://youtu.be/Nb4IjsXgFi8" target="_blank" class="btn-small">Video</a>
+                        <a href="https://github.com/07hokage/formation_control" target="_blank"
+                            class="btn-small">Code</a>
+                    </div>
 
-                        the implemented algorithms. The open source nanoquadcopter platform crazyflie
-                        2.0 was choosen for the experimentation and ardupilot flight stack along with
-                        dronekit software in the loop were used for simulation purpose. The first phase
-                        consisted of study of virtual structure, leader-follower, a graph theoretic method
-                        of formation control. Secondly, understanding the control architecture of crazyflie
-
-                        2.0, system setup and operation of optitrack motion capture system, robot oper-
-                        ating system and dronekit Software in the loop. Up next is the controller design of
-
-                        the above mentioned formation control algorithms and implementation on the cho-
-                        sen platforms, comparing their performance in formation sustenance. Comparison
-
-                        shows that graph theoretic method is best suitable for formation maintenance.
-                        Finally Target interception has been simulated using the graph theoretic method
-                        and further exploitation of velocity and trajectory based formation controls are
-                        proposed as future work through optimisation techniques.
+                    <div id="abs5" class="hidden-block">
+                        The primary purpose of the study is to investigate various formation control algorithms as well
+                        as implementing them on an experimental platform with the ultimate goal of implementing target
+                        interception by choosing the best suited among the implemented algorithms. The open source
+                        nanoquadcopter platform crazyflie 2.0 was choosen for the experimentation and ardupilot flight
+                        stack along with dronekit software in the loop were used for simulation purpose. The first phase
+                        consisted of study of virtual structure, leader-follower, a graph theoretic method of formation
+                        control. Secondly, understanding the control architecture of crazyflie 2.0, system setup and
+                        operation of optitrack motion capture system, robot operating system and dronekit Software in
+                        the loop. Up next is the controller design of the above mentioned formation control algorithms
+                        and implementation on the chosen platforms, comparing their performance in formation sustenance.
+                        Comparison shows that graph theoretic method is best suitable for formation maintenance. Finally
+                        Target interception has been simulated using the graph theoretic method and further exploitation
+                        of velocity and trajectory based formation controls are proposed as future work through
+                        optimisation techniques.
                     </div>
                 </div>
             </div>
+
         </section>
 
         <section>
             <h2 class="section-title">Industry Experience</h2>
 
-            <div class="list-grid">
-                <div class="list-date">2020 – 2021</div>
-                <div class="list-content">
-                    <strong>VECROS | Co-Founder and CTO</strong>
+            <div class="exp-grid">
+                <div class="exp-date">2020 – 2021</div>
+                <div class="exp-content">
+                    <strong>VECROS | Co-Founder and CTO</strong><br>
                     Developed an edge-processed Visual Inertial Odometry system and a mapless reactive planner for
                     GPS-denied navigation. Led the team in building a web-based BVLOS control platform using AWS IoT.
                 </div>
             </div>
 
-            <div class="list-grid">
-                <div class="list-date">2016 – 2017</div>
-                <div class="list-content">
-                    <strong>Sterlite Tech | Operations Engineer</strong>
+            <div class="exp-grid">
+                <div class="exp-date">2016 – 2017</div>
+                <div class="exp-content">
+                    <strong>Sterlite Tech | Operations Engineer</strong><br>
                     Investigated the optical fiber spooling process and implemented a grounding mechanism to reduce
                     process failures.
                 </div>
@@ -787,20 +817,20 @@
         <section>
             <h2 class="section-title">Service & Leadership</h2>
 
-            <div class="list-grid">
-                <div class="list-date">Organizer</div>
-                <div class="list-content">Workshop on Neural Representation Learning for Robot Manipulation (CoRL 2023)
+            <div class="exp-grid">
+                <div class="exp-date">Organizer</div>
+                <div class="exp-content">Workshop on Neural Representation Learning for Robot Manipulation (CoRL 2023)
                 </div>
             </div>
 
-            <div class="list-grid">
-                <div class="list-date">Reviewer</div>
-                <div class="list-content">IROS 2024, ICRA 2025, ICRA 2026</div>
+            <div class="exp-grid">
+                <div class="exp-date">Reviewer</div>
+                <div class="exp-content">IROS 2024, ICRA 2025, ICRA 2026</div>
             </div>
 
-            <div class="list-grid">
-                <div class="list-date">Teaching</div>
-                <div class="list-content">
+            <div class="exp-grid">
+                <div class="exp-date">Teaching</div>
+                <div class="exp-content">
                     <strong>UT Dallas:</strong> Computer Graphics, Human-Computer Interaction<br>
                     <strong>IIT Delhi:</strong> Stochastic filtering, Multi-agent control, Advanced Control Lab
                 </div>
@@ -808,42 +838,36 @@
         </section>
 
         <footer>
-            &copy; 2025 Sai Haneesh Allu. Theme inspired by Al-Folio & Jon Barron.
+            © 2025 Sai Haneesh Allu.
         </footer>
 
     </div>
 
     <script>
-        /* --- DARK MODE LOGIC --- */
-        function toggleTheme() {
-            const html = document.documentElement;
-            const icon = document.getElementById('theme-icon');
-            const currentTheme = html.getAttribute('data-theme');
-
-            // If attribute is missing (default state), treat as Dark Mode
-            if (!currentTheme || currentTheme === 'dark') {
-                html.setAttribute('data-theme', 'light');
-                icon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('theme', 'light');
+        function toggle(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('show')) {
+                el.classList.remove('show');
             } else {
-                html.removeAttribute('data-theme'); // Go back to default (Dark)
-                icon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('theme', 'dark');
+                el.classList.add('show');
             }
         }
 
-        // Check saved preference on load
-        if (localStorage.getItem('theme') === 'light') {
-            document.getElementById('theme-icon').classList.replace('fa-sun', 'fa-moon');
-        }
+        /* --- THEME TOGGLE LOGIC --- */
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.querySelector('.theme-toggle i');
+            const currentTheme = html.getAttribute('data-theme');
 
-        /* --- TOGGLE ABSTRACT / BIBTEX --- */
-        function toggleBlock(id) {
-            const el = document.getElementById(id);
-            el.classList.toggle('show');
+            if (currentTheme === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            }
         }
     </script>
-
 </body>
 
 </html>
